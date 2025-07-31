@@ -1,0 +1,3 @@
+<x-filament::page>
+    Loading...
+</x-filament::page>
