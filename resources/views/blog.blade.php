@@ -129,47 +129,7 @@
 
 <body>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="header d-flex align-items-center">
-    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
-      <a href="/" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1>Desa Tlogodalem<span></span></h1>
-      </a>
-
-      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/profil">Profil</a></li>
-          <li class="dropdown"><a href="/potensi"><span>Potensi Desa</span> <i
-                class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
-              <li><a href="/potensi-desa-pertanian">Pertanian</a></li>
-              <li><a href="/potensi-desa-UMKM">UMKM</a></li>
-              <li><a href="/potensi-desa-wisata">Wisata</a></li>
-            </ul>
-          </li>
-          <li><a href="/galeri">Galeri</a></li>
-          <li><a href="/artikel-desa" class="active">Artikel Desa</a></li>
-          <li class="dropdown"><a href="#"><span>Budaya dan Kearifan Lokal</span> <i
-                class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
-              <li><a href="/budaya-bakalan">Dusun Bakalan</a></li>
-              <li><a href="/budaya-senden">Dusun Senden</a></li>
-              <li><a href="/budaya-ngadisari">Dusun Ngadisari</a></li>
-              <li><a href="/budaya-wringin">Dusun Wringin</a></li>
-            </ul>
-          </li>
-          <li><a href="/kontak">Kontak</a></li>
-        </ul>
-      </nav><!-- .navbar -->
-
-    </div>
-  </header><!-- End Header -->
+  @include('partials.header')
 
   <main id="main">
 
@@ -194,7 +154,7 @@
                     <h2 class="text-center mb-5">Artikel Desa</h2>
                 </div>
             </div>
-            
+
             <!-- Search and Filter Section -->
             <div class="row mb-4">
                 <div class="col-12">
@@ -207,21 +167,21 @@
                                         <span class="input-group-text">
                                             <i class="bi bi-search"></i>
                                         </span>
-                                        <input type="text" 
-                                            id="search-input" 
-                                            class="form-control" 
+                                        <input type="text"
+                                            id="search-input"
+                                            class="form-control"
                                             placeholder="Cari artikel..."
                                             autocomplete="off">
-                                        <button class="btn btn-outline-secondary" 
-                                                type="button" 
-                                                id="clear-search" 
+                                        <button class="btn btn-outline-secondary"
+                                                type="button"
+                                                id="clear-search"
                                                 style="display: none;">
                                             <i class="bi bi-x-lg"></i>
                                         </button>
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <!-- Category Filter -->
                             <div class="col-md-4">
                                 <div class="category-filter">
@@ -233,7 +193,7 @@
                                     </select>
                                 </div>
                             </div>
-                            
+
                             <!-- Sort Options -->
                             <div class="col-md-2">
                                 <div class="sort-options">
@@ -246,7 +206,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Active Filters Display -->
                         <div class="active-filters mt-3" id="active-filters" style="display: none;">
                             <span class="text-muted">Filter aktif:</span>
@@ -260,7 +220,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Results Info -->
             <div class="row mb-3">
                 <div class="col-12">
@@ -277,7 +237,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Loading State -->
             <div id="loading" class="loading text-center py-5">
                 <div class="spinner-border text-primary" role="status">
@@ -285,7 +245,7 @@
                 </div>
                 <p class="mt-3 text-muted">Memuat artikel...</p>
             </div>
-            
+
             <!-- Error State -->
             <div id="error" class="error-message text-center py-5" style="display: none;">
                 <i class="bi bi-exclamation-triangle text-warning" style="font-size: 3rem;"></i>
@@ -295,19 +255,19 @@
                     <i class="bi bi-arrow-clockwise"></i> Coba Lagi
                 </button>
             </div>
-            
+
             <!-- No Data State -->
             <div id="no-data" class="no-data text-center py-5" style="display: none;">
                 <i class="bi bi-inbox text-muted" style="font-size: 3rem;"></i>
                 <h4 class="mt-3">Tidak Ada Artikel</h4>
                 <p class="text-muted" id="no-data-message">Belum ada artikel yang dipublikasikan.</p>
             </div>
-            
+
             <!-- Articles Container -->
             <div id="articles-container" class="row gy-4 posts-list" style="display: none;">
                 <!-- Articles will be dynamically loaded here -->
             </div>
-            
+
             <!-- Pagination -->
             <div id="pagination-container" class="blog-pagination" style="display: none;">
                 <ul class="justify-content-center" id="pagination-list">
@@ -319,41 +279,7 @@
 
   </main><!-- End #main -->
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer">
-
-<div class="footer-content position-relative">
-  <div class="container">
-    <div class="row justify-content-center">
-
-      <div class="col-lg-6 col-md-8 text-center">
-        <div class="footer-info">
-          <h3>Desa Tlogodalem</h3>
-          <div class="social-links d-flex justify-content-center mt-3">
-            <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-youtube"></i></a>
-            <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-whatsapp"></i></a>
-          </div>
-        </div>
-      </div><!-- End footer info column-->
-    </div>
-  </div>
-</div>
-
-<div class="footer-legal text-center position-relative">
-  <div class="container">
-    <div class="copyright">
-      &copy; Copyright 2025 <strong><span>Desa Tlogodalem</span></strong>. 
-    </div>
-    <div class="credits">
-      Design by <strong>KKN-PPM UGM 2025 Semanak Kertek.</strong>
-    </div>
-  </div>
-</div>
-
-</footer>
-<!-- End Footer -->
+  @include('partials.footer')
 
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
       class="bi bi-arrow-up-short"></i></a>
@@ -375,7 +301,7 @@
     <script>
         // Inisialisasi AOS
         AOS.init();
-        
+
         // Konfigurasi
         const API_URL = 'http://127.0.0.1:8000/api/artikel-desa';
         let currentPage = 1;
@@ -391,64 +317,64 @@
         function capitalize(str) {
             return str.charAt(0).toUpperCase() + str.slice(1);
         }
-        
+
         // Filter state
         let currentFilters = {
             search: query_cari == null ? '' : query_cari,
             category: query_kategori == null ? '' : capitalize(query_kategori),
             sort: 'latest'
         };
-        
+
         // Fungsi untuk memformat tanggal
         function formatDate(dateString) {
-            const options = { 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric' 
+            const options = {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
             };
             return new Date(dateString).toLocaleDateString('id-ID', options);
         }
-        
+
         // Fungsi untuk mendapatkan URL thumbnail
         function getThumbnailUrl(thumbnail) {
             if (!thumbnail) return 'assets/img/default-article.jpg';
             if (thumbnail.startsWith('http')) return thumbnail;
             return `http://127.0.0.1:8000/storage/${thumbnail}`;
         }
-        
+
         // Fungsi untuk memotong konten
         function truncateContent(content, maxLength = 150) {
             const tempDiv = document.createElement('div');
             tempDiv.innerHTML = content;
             const textContent = tempDiv.textContent || tempDiv.innerText || '';
-            
+
             if (textContent.length <= maxLength) return textContent;
             return textContent.substr(0, maxLength) + '...';
         }
-        
+
         // Fungsi untuk memuat semua artikel dari API
         async function loadAllArticles() {
             try {
                 showLoading();
-                
+
                 let allData = [];
                 let page = 1;
                 let hasMorePages = true;
-                
+
                 while (hasMorePages) {
                     const response = await fetch(`${API_URL}?page=${page}&per_page=50`);
-                    
+
                     if (!response.ok) {
                         throw new Error(`HTTP error! status: ${response.status}`);
                     }
-                    
+
                     const data = await response.json();
-                    
+
                     if (data.data && data.data.length > 0) {
                         // Filter artikel yang published
                         const publishedArticles = data.data.filter(article => article.status === 'published');
                         allData = allData.concat(publishedArticles);
-                        
+
                         // Check if there are more pages
                         if (data.meta && data.meta.current_page < data.meta.last_page) {
                             page++;
@@ -459,61 +385,61 @@
                         hasMorePages = false;
                     }
                 }
-                
+
                 allArticles = allData;
-                
+
                 if (allArticles.length === 0) {
                     showNoData();
                     return;
                 }
-                
+
                 // Apply current filters
                 applyFilters();
-                
+
             } catch (error) {
                 console.error('Error loading articles:', error);
                 showError();
             }
         }
-        
+
         // Fungsi untuk memuat artikel dengan pagination (fallback jika API mendukung server-side filtering)
         async function loadArticles(page = 1, search = '', category = '', sort = 'latest') {
             try {
                 showLoading();
-                
+
                 // Build query parameters
                 const params = new URLSearchParams({
                     page: page,
                     per_page: 9
                 });
-                
+
                 if (search) params.append('search', search);
                 if (category) params.append('category', category);
                 if (sort) params.append('sort', sort);
-                
+
                 const response = await fetch(`${API_URL}?${params}`);
-                
+
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
-                
+
                 const data = await response.json();
-                
+
                 // Menangani struktur API Laravel pagination
                 if (data.data && data.meta) {
                     // Filter artikel yang published
                     articles = data.data.filter(article => article.status === 'published');
-                    
+
                     // Menggunakan informasi pagination dari API
                     currentPage = data.meta.current_page;
                     totalPages = data.meta.last_page;
                     const totalItems = data.meta.total;
-                    
+
                     if (articles.length === 0 && totalItems === 0) {
                         showNoData();
                         return;
                     }
-                    
+
                     displayArticles(articles);
                     displayPagination(data.meta, data.links);
                     updateResultsInfo(totalItems);
@@ -521,36 +447,36 @@
                 else {
                     showNoData();
                 }
-                
+
             } catch (error) {
                 console.error('Error loading articles:', error);
                 // Fallback to client-side filtering
                 loadAllArticles();
             }
         }
-        
+
         // Fungsi untuk menerapkan filter client-side
         function applyFilters() {
             let filtered = [...allArticles];
-            
+
             // Apply search filter
             if (currentFilters.search) {
                 const searchTerm = currentFilters.search.toLowerCase();
-                filtered = filtered.filter(article => 
+                filtered = filtered.filter(article =>
                     article.title.toLowerCase().includes(searchTerm) ||
                     article.content.toLowerCase().includes(searchTerm) ||
                     (article.author_name && article.author_name.toLowerCase().includes(searchTerm)) ||
                     (article.kategori && article.kategori.toLowerCase().includes(searchTerm))
                 );
             }
-            
+
             // Apply category filter
             if (currentFilters.category) {
-                filtered = filtered.filter(article => 
+                filtered = filtered.filter(article =>
                     article.kategori === currentFilters.category
                 );
             }
-            
+
             // Apply sorting
             filtered.sort((a, b) => {
                 switch (currentFilters.sort) {
@@ -566,20 +492,20 @@
                         return new Date(b.date || b.created_at) - new Date(a.date || a.created_at);
                 }
             });
-            
+
             filteredArticles = filtered;
-            
+
             // Pagination for client-side filtering
             const itemsPerPage = 9;
             totalPages = Math.ceil(filteredArticles.length / itemsPerPage);
             currentPage = Math.min(currentPage, totalPages) || 1;
-            
+
             const startIndex = (currentPage - 1) * itemsPerPage;
             const endIndex = startIndex + itemsPerPage;
             const articlesToShow = filteredArticles.slice(startIndex, endIndex);
 
             console.log(filteredArticles.length)
-            
+
             if (filteredArticles.length === 0) {
                 showNoData();
                 updateNoDataMessage();
@@ -589,22 +515,22 @@
                 displayClientSidePagination();
                 updateResultsInfo(filteredArticles.length);
             }
-            
+
             updateActiveFilters();
         }
-        
+
         // Fungsi untuk menampilkan artikel
         function displayArticles(articles) {
             const container = document.getElementById('articles-container');
             container.innerHTML = '';
-            
+
             articles.forEach((article, index) => {
                 const articleHtml = `
                     <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="${(index + 1) * 100}">
                         <div class="post-item position-relative h-100">
                             <div class="post-img position-relative overflow-hidden">
-                                <img src="${getThumbnailUrl(article.thumbnail)}" 
-                                    class="img-fluid" 
+                                <img src="${getThumbnailUrl(article.thumbnail)}"
+                                    class="img-fluid"
                                     alt="${article.title}"
                                     onerror="this.src='https://via.placeholder.com/400x250?text=Tidak+Ada+Gambar'">
                                 <span class="post-date">${formatDate(article.date || article.created_at)}</span>
@@ -613,18 +539,18 @@
                                 <h3 class="post-title">${article.title}</h3>
                                 <div class="meta d-flex align-items-center">
                                     <div class="d-flex align-items-center">
-                                        <i class="bi bi-person"></i> 
+                                        <i class="bi bi-person"></i>
                                         <span class="ps-2">${article.author_name || 'Admin'}</span>
                                     </div>
                                     <span class="px-3 text-black-50">/</span>
                                     <div class="d-flex align-items-center">
-                                        <i class="bi bi-folder2"></i> 
+                                        <i class="bi bi-folder2"></i>
                                         <span class="ps-2 category-badge">${article.kategori || 'Umum'}</span>
                                     </div>
                                 </div>
                                 <p>${truncateContent(article.content)}</p>
                                 <hr>
-                                <a href="/artikel/${article.slug || article.id}" 
+                                <a href="/artikel/${article.slug || article.id}"
                                 class="readmore stretched-link">
                                 <span>Baca Selengkapnya</span>
                                 <i class="bi bi-arrow-right"></i>
@@ -635,27 +561,27 @@
                 `;
                 container.innerHTML += articleHtml;
             });
-            
+
             hideLoading();
             container.style.display = 'flex';
-            
+
             // Re-initialize AOS for new elements
             AOS.refresh();
         }
-        
+
         // Fungsi untuk menampilkan pagination (server-side)
         function displayPagination(meta = null, links = null) {
             if (!meta || meta.last_page <= 1) {
                 document.getElementById('pagination-container').style.display = 'none';
                 return;
             }
-            
+
             const paginationList = document.getElementById('pagination-list');
             paginationList.innerHTML = '';
-            
+
             const currentPage = meta.current_page;
             const lastPage = meta.last_page;
-            
+
             // Previous button
             if (links && links.prev) {
                 paginationList.innerHTML += `
@@ -666,11 +592,11 @@
                     </li>
                 `;
             }
-            
+
             // Page numbers dengan logika yang lebih baik
             const startPage = Math.max(1, currentPage - 2);
             const endPage = Math.min(lastPage, currentPage + 2);
-            
+
             // First page dan ellipsis
             if (startPage > 1) {
                 paginationList.innerHTML += `<li><a href="#" onclick="changePage(1)">1</a></li>`;
@@ -678,7 +604,7 @@
                     paginationList.innerHTML += `<li><span class="px-3">...</span></li>`;
                 }
             }
-            
+
             // Page range
             for (let i = startPage; i <= endPage; i++) {
                 paginationList.innerHTML += `
@@ -687,7 +613,7 @@
                     </li>
                 `;
             }
-            
+
             // Last page dan ellipsis
             if (endPage < lastPage) {
                 if (endPage < lastPage - 1) {
@@ -695,7 +621,7 @@
                 }
                 paginationList.innerHTML += `<li><a href="#" onclick="changePage(${lastPage})">${lastPage}</a></li>`;
             }
-            
+
             // Next button
             if (links && links.next) {
                 paginationList.innerHTML += `
@@ -706,20 +632,20 @@
                     </li>
                 `;
             }
-            
+
             document.getElementById('pagination-container').style.display = 'block';
         }
-        
+
         // Fungsi untuk menampilkan pagination client-side
         function displayClientSidePagination() {
             if (totalPages <= 1) {
                 document.getElementById('pagination-container').style.display = 'none';
                 return;
             }
-            
+
             const paginationList = document.getElementById('pagination-list');
             paginationList.innerHTML = '';
-            
+
             // Previous button
             if (currentPage > 1) {
                 paginationList.innerHTML += `
@@ -730,18 +656,18 @@
                     </li>
                 `;
             }
-            
+
             // Page numbers
             const startPage = Math.max(1, currentPage - 2);
             const endPage = Math.min(totalPages, currentPage + 2);
-            
+
             if (startPage > 1) {
                 paginationList.innerHTML += `<li><a href="#" onclick="changeClientPage(1)">1</a></li>`;
                 if (startPage > 2) {
                     paginationList.innerHTML += `<li><span class="px-3">...</span></li>`;
                 }
             }
-            
+
             for (let i = startPage; i <= endPage; i++) {
                 paginationList.innerHTML += `
                     <li class="${i === currentPage ? 'active' : ''}">
@@ -749,14 +675,14 @@
                     </li>
                 `;
             }
-            
+
             if (endPage < totalPages) {
                 if (endPage < totalPages - 1) {
                     paginationList.innerHTML += `<li><span class="px-3">...</span></li>`;
                 }
                 paginationList.innerHTML += `<li><a href="#" onclick="changeClientPage(${totalPages})">${totalPages}</a></li>`;
             }
-            
+
             // Next button
             if (currentPage < totalPages) {
                 paginationList.innerHTML += `
@@ -767,10 +693,10 @@
                     </li>
                 `;
             }
-            
+
             document.getElementById('pagination-container').style.display = 'block';
         }
-        
+
         // Fungsi untuk mengubah halaman (server-side)
         function changePage(page) {
             if (page >= 1 && page !== currentPage) {
@@ -778,7 +704,7 @@
                 scrollToTop();
             }
         }
-        
+
         // Fungsi untuk mengubah halaman (client-side)
         function changeClientPage(page) {
             if (page >= 1 && page <= totalPages && page !== currentPage) {
@@ -787,14 +713,14 @@
                 scrollToTop();
             }
         }
-        
+
         // Fungsi untuk scroll ke atas
         function scrollToTop() {
-            document.getElementById('blog').scrollIntoView({ 
-                behavior: 'smooth' 
+            document.getElementById('blog').scrollIntoView({
+                behavior: 'smooth'
             });
         }
-        
+
         // Fungsi untuk update info hasil
         function updateResultsInfo(totalCount) {
             const resultsInfo = document.getElementById('results-info');
@@ -803,34 +729,34 @@
             const searchTerm = document.getElementById('search-term');
             const categoryFilterDisplay = document.getElementById('category-filter-display');
             const selectedCategory = document.getElementById('selected-category');
-            
+
             resultsCount.textContent = totalCount;
-            
+
             if (currentFilters.search) {
                 searchTerm.textContent = currentFilters.search;
                 searchQueryDisplay.style.display = 'inline';
             } else {
                 searchQueryDisplay.style.display = 'none';
             }
-            
+
             if (currentFilters.category) {
                 selectedCategory.textContent = currentFilters.category;
                 categoryFilterDisplay.style.display = 'inline';
             } else {
                 categoryFilterDisplay.style.display = 'none';
             }
-            
+
             resultsInfo.style.display = 'block';
         }
-        
+
         // Fungsi untuk update active filters
         function updateActiveFilters() {
             const activeFilters = document.getElementById('active-filters');
             const filterTags = document.getElementById('filter-tags');
-            
+
             filterTags.innerHTML = '';
             let hasActiveFilters = false;
-            
+
             if (currentFilters.search) {
                 filterTags.innerHTML += `
                     <span class="badge bg-primary">
@@ -840,7 +766,7 @@
                 `;
                 hasActiveFilters = true;
             }
-            
+
             if (currentFilters.category) {
                 filterTags.innerHTML += `
                     <span class="badge bg-success">
@@ -850,7 +776,7 @@
                 `;
                 hasActiveFilters = true;
             }
-            
+
             if (currentFilters.sort !== 'latest') {
                 const sortLabels = {
                     'oldest': 'Terlama',
@@ -865,21 +791,21 @@
                 `;
                 hasActiveFilters = true;
             }
-            
+
             activeFilters.style.display = hasActiveFilters ? 'block' : 'none';
         }
-        
+
         // Fungsi untuk update pesan no data
         function updateNoDataMessage() {
             const noDataMessage = document.getElementById('no-data-message');
-            
+
             if (currentFilters.search || currentFilters.category) {
                 noDataMessage.textContent = 'Tidak ada artikel yang sesuai dengan filter yang dipilih.';
             } else {
                 noDataMessage.textContent = 'Belum ada artikel yang dipublikasikan.';
             }
         }
-        
+
         // Fungsi untuk clear individual filters
         function clearSearchFilter() {
             currentFilters.search = '';
@@ -888,21 +814,21 @@
             currentPage = 1;
             applyFilters();
         }
-        
+
         function clearCategoryFilter() {
             currentFilters.category = '';
             document.getElementById('category-filter').value = '';
             currentPage = 1;
             applyFilters();
         }
-        
+
         function clearSortFilter() {
             currentFilters.sort = 'latest';
             document.getElementById('sort-filter').value = 'latest';
             currentPage = 1;
             applyFilters();
         }
-        
+
         // Fungsi untuk clear semua filter
         function clearAllFilters() {
             currentFilters = {
@@ -910,61 +836,61 @@
                 category: '',
                 sort: 'latest'
             };
-            
+
             document.getElementById('search-input').value = '';
             document.getElementById('category-filter').value = '';
             document.getElementById('sort-filter').value = 'latest';
             document.getElementById('clear-search').style.display = 'none';
-            
+
             currentPage = 1;
             applyFilters();
         }
-        
+
         // Event handlers
         function setupEventHandlers() {
             // Search input with debouncing
             const searchInput = document.getElementById('search-input');
             const clearSearchBtn = document.getElementById('clear-search');
-            
+
             searchInput.addEventListener('input', function(e) {
                 const value = e.target.value.trim();
-                
+
                 if (searchTimeout) {
                     clearTimeout(searchTimeout);
                 }
-                
+
                 clearSearchBtn.style.display = value ? 'block' : 'none';
-                
+
                 searchTimeout = setTimeout(() => {
                     currentFilters.search = value;
                     currentPage = 1;
                     applyFilters();
                 }, 500);
             });
-            
+
             clearSearchBtn.addEventListener('click', function() {
                 clearSearchFilter();
             });
-            
+
             // Category filter
             document.getElementById('category-filter').addEventListener('change', function(e) {
                 currentFilters.category = e.target.value;
                 currentPage = 1;
                 applyFilters();
             });
-            
+
             // Sort filter
             document.getElementById('sort-filter').addEventListener('change', function(e) {
                 currentFilters.sort = e.target.value;
                 currentPage = 1;
                 applyFilters();
             });
-            
+
             // Clear all filters button
             document.getElementById('clear-all-filters').addEventListener('click', function() {
                 clearAllFilters();
             });
-            
+
             // Enter key on search
             searchInput.addEventListener('keypress', function(e) {
                 if (e.key === 'Enter') {
@@ -978,7 +904,7 @@
                 }
             });
         }
-        
+
         // Fungsi untuk menampilkan loading
         function showLoading() {
             document.getElementById('loading').style.display = 'block';
@@ -988,12 +914,12 @@
             document.getElementById('pagination-container').style.display = 'none';
             document.getElementById('results-info').style.display = 'none';
         }
-        
+
         // Fungsi untuk menyembunyikan loading
         function hideLoading() {
             document.getElementById('loading').style.display = 'none';
         }
-        
+
         // Fungsi untuk menampilkan error
         function showError() {
             hideLoading();
@@ -1003,7 +929,7 @@
             document.getElementById('pagination-container').style.display = 'none';
             document.getElementById('results-info').style.display = 'none';
         }
-        
+
         // Fungsi untuk menampilkan no data
         function showNoData() {
             hideLoading();
@@ -1021,7 +947,7 @@
             document.getElementById('pagination-container').style.display = 'none';
             document.getElementById('results-info').style.display = 'none';
         }
-        
+
         // Memuat artikel saat halaman dimuat
         document.addEventListener('DOMContentLoaded', function() {
             setupEventHandlers();

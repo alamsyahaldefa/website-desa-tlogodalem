@@ -14,7 +14,7 @@ Route::get('/', function () {
 
     // Kirim data kategori ke view menggunakan compact()
     return view('index', compact('categories'));
-});
+})->name('home');
 
 Route::get('/profil', function () {
     $profil_umum = ProfilDesa::first();
@@ -24,20 +24,20 @@ Route::get('/profil', function () {
 
 Route::get('/potensi-desa-pertanian', function () {
     return view('potensi-pertanian');
-})->name('potensi-desa-pertanian');
+})->name('potensi.pertanian');
 
 Route::get('/potensi-desa-UMKM', function () {
     return view('potensi-umkm');
-})->name('potensi-desa-UMKM');
+})->name('potensi.umkm');
 
 Route::get('/potensi-desa-wisata', function () {
     return view('potensi-wisata');
-})->name('potensi-desa-wisata');
+})->name('potensi.wisata');
 
 Route::get('/artikel-desa', function () {
     $kategori_all = Kategori::get('name');
     return view('blog', compact('kategori_all'));
-})->name('artikel-desa');
+})->name('artikel.index');
 
 // Route::get('/artikel-details', function () {
 //     $artikel = ArtikelDesa::first();
@@ -75,19 +75,19 @@ Route::get('/galeri-details', function () {
 
 Route::get('/budaya-bakalan', function () {
     return view('budaya-bakalan');
-})->name('budaya-bakalan');
+})->name('budaya.bakalan');
 
 Route::get('/budaya-senden', function () {
     return view('budaya-senden');
-})->name('budaya-senden');
+})->name('budaya.senden');
 
 Route::get('/budaya-ngadisari', function () {
     return view('budaya-ngadisari');
-})->name('budaya-ngadisari');
+})->name('budaya.ngadisari');
 
 Route::get('//budaya-wringin', function () {
     return view('budaya-wringin');
-})->name('budaya-wringin');
+})->name('budaya.wringin');
 
 Route::get('/kontak', function () {
     $profil_umum = ProfilDesa::first();

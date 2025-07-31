@@ -33,47 +33,7 @@
 </head>
 <body>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="header d-flex align-items-center">
-    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
-      <a href="/" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1>Desa Tlogodalem<span></span></h1>
-      </a>
-
-      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/profil" class="active">Profil</a></li>
-          <li class="dropdown"><a href="/potensi"><span>Potensi Desa</span> <i
-                class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
-              <li><a href="/potensi-desa-pertanian">Pertanian</a></li>
-              <li><a href="/potensi-desa-UMKM">UMKM</a></li>
-              <li><a href="/potensi-desa-wisata">Wisata</a></li>
-            </ul>
-          </li>
-          <li><a href="/galeri">Galeri</a></li>
-          <li><a href="/artikel-desa">Artikel Desa</a></li>
-          <li class="dropdown"><a href="#"><span>Budaya dan Kearifan Lokal</span> <i
-                class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
-              <li><a href="/budaya-bakalan">Dusun Bakalan</a></li>
-              <li><a href="/budaya-senden">Dusun Senden</a></li>
-              <li><a href="/budaya-ngadisari">Dusun Ngadisari</a></li>
-              <li><a href="/budaya-wringin">Dusun Wringin</a></li>
-            </ul>
-          </li>
-          <li><a href="/kontak">Kontak</a></li>
-        </ul>
-      </nav><!-- .navbar -->
-
-    </div>
-  </header><!-- End Header -->
+  @include('partials.header')
 
   <main id="main">
 
@@ -129,7 +89,7 @@
 
           <div class="col-lg-5 d-flex flex-column justify-content-center">
             <h3>Visi & Misi Desa</h3>
-            
+
             <div class="mb-4">
               <h4 style="color: #2c4964; margin-bottom: 15px;">VISI</h4>
               <p style="font-style: italic; font-size: 16px;">"Mewujudkan Desa yang Maju, Sejahtera, dan Berbudaya Berdasarkan Nilai-Nilai Gotong Royong"</p>
@@ -137,7 +97,7 @@
 
             <div>
               <h4 style="color: #2c4964; margin-bottom: 15px;">MISI</h4>
-              
+
               <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="100">
                 <i class="bi bi-arrow-right-circle flex-shrink-0"></i>
                 <div>
@@ -243,8 +203,8 @@
         <div class="row justify-content-center">
           <div class="col-lg-8">
             <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-              <iframe 
-                src="{{ $profil_umum->GetEmbedUrlVideoProfil() }}" 
+              <iframe
+                src="{{ $profil_umum->GetEmbedUrlVideoProfil() }}"
                 style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
@@ -296,45 +256,11 @@
       </div>
     </section><!-- End Jajaran Perangkat Desa Section -->
 
-   
+
 
   </main><!-- End #main -->
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer">
-
-<div class="footer-content position-relative">
-  <div class="container">
-    <div class="row justify-content-center">
-
-      <div class="col-lg-6 col-md-8 text-center">
-        <div class="footer-info">
-          <h3>Desa Tlogodalem</h3>
-          <div class="social-links d-flex justify-content-center mt-3">
-            <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-youtube"></i></a>
-            <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-whatsapp"></i></a>
-          </div>
-        </div>
-      </div><!-- End footer info column-->
-    </div>
-  </div>
-</div>
-
-<div class="footer-legal text-center position-relative">
-  <div class="container">
-    <div class="copyright">
-      &copy; Copyright 2025 <strong><span>Desa Tlogodalem</span></strong>. 
-    </div>
-    <div class="credits">
-      Design by <strong>KKN-PPM UGM 2025 Semanak Kertek.</strong>
-    </div>
-  </div>
-</div>
-
-</footer>
-<!-- End Footer -->
+  @include('partials.footer')
 
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
       class="bi bi-arrow-up-short"></i></a>

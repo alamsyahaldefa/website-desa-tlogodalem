@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -20,5 +22,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
+        View::composer('partials.footer', function ($view) {
+            $profil = Cache::remember('profil', 3600, function () {
+                return \App\Models\ProfilDesa::first();
+            });
+            $view->with('profil', $profil);
+        });
     }
 }

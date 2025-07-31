@@ -35,47 +35,7 @@
 
 <body>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="header d-flex align-items-center">
-    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
-      <a href="/" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1>Desa Tlogodalem<span></span></h1>
-      </a>
-
-      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/profil">Profil</a></li>
-          <li class="dropdown"><a href="/potensi"><span>Potensi Desa</span> <i
-                class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
-              <li><a href="/potensi-desa-pertanian">Pertanian</a></li>
-              <li><a href="/potensi-desa-UMKM">UMKM</a></li>
-              <li><a href="/potensi-desa-wisata">Wisata</a></li>
-            </ul>
-          </li>
-          <li><a href="/galeri" class="active">Galeri</a></li>
-          <li><a href="/artikel-desa">Artikel Desa</a></li>
-          <li class="dropdown"><a href="#"><span>Budaya dan Kearifan Lokal</span> <i
-                class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
-              <li><a href="/budaya-bakalan">Dusun Bakalan</a></li>
-              <li><a href="/budaya-senden">Dusun Senden</a></li>
-              <li><a href="/budaya-ngadisari">Dusun Ngadisari</a></li>
-              <li><a href="/budaya-wringin">Dusun Wringin</a></li>
-            </ul>
-          </li>
-          <li><a href="/kontak">Kontak</a></li>
-        </ul>
-      </nav><!-- .navbar -->
-
-    </div>
-  </header><!-- End Header -->
+  @include('partials.header')
 
   <main id="main">
 
@@ -127,41 +87,7 @@
 
   </main><!-- End #main -->
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer">
-
-    <div class="footer-content position-relative">
-      <div class="container">
-        <div class="row justify-content-center">
-
-          <div class="col-lg-6 col-md-8 text-center">
-            <div class="footer-info">
-              <h3>Desa Tlogodalem</h3>
-              <div class="social-links d-flex justify-content-center mt-3">
-                <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-instagram"></i></a>
-                <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-youtube"></i></a>
-                <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-whatsapp"></i></a>
-              </div>
-            </div>
-          </div><!-- End footer info column-->
-        </div>
-      </div>
-    </div>
-
-    <div class="footer-legal text-center position-relative">
-      <div class="container">
-        <div class="copyright">
-          &copy; Copyright 2025 <strong><span>Desa Tlogodalem</span></strong>. 
-        </div>
-        <div class="credits">
-          Design by <strong>KKN-PPM UGM 2025 Semanak Kertek.</strong>
-        </div>
-      </div>
-    </div>
-
-  </footer>
-  <!-- End Footer -->
+  @include('partials.footer')
 
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
       class="bi bi-arrow-up-short"></i></a>
@@ -171,7 +97,7 @@
   <script>
     // URL API
     const apiUrl = 'http://127.0.0.1:8000/api/galeri';
-    
+
     // Pagination variables
     let allItems = [];
     let filteredItems = [];
@@ -210,7 +136,7 @@
       const startIndex = (page - 1) * itemsPerPage;
       const endIndex = startIndex + itemsPerPage;
       const pageItems = filteredItems.slice(startIndex, endIndex);
-      
+
       populateGallery(pageItems);
       updatePaginationButtons();
     }
@@ -218,7 +144,7 @@
     // Fungsi untuk mempopulasi galeri dengan data dari API
     function populateGallery(items) {
       const galleryContainer = document.getElementById('gallery-container');
-      
+
       // Clear any existing gallery items
       galleryContainer.innerHTML = '';
 
@@ -268,29 +194,29 @@
     // Fungsi untuk inisialisasi filter
     function initializeFilters() {
       const filterButtons = document.querySelectorAll('.portfolio-flters li');
-      
+
       filterButtons.forEach(button => {
         button.addEventListener('click', function() {
           // Remove active class from all buttons
           filterButtons.forEach(btn => btn.classList.remove('filter-active'));
-          
+
           // Add active class to clicked button
           this.classList.add('filter-active');
-          
+
           // Get filter value
           const filterValue = this.getAttribute('data-filter');
           currentFilter = filterValue;
-          
+
           // Filter items
           if (filterValue === '*') {
             filteredItems = [...allItems];
           } else {
             const filterCategory = filterValue.replace('.filter-', '');
-            filteredItems = allItems.filter(item => 
+            filteredItems = allItems.filter(item =>
               item.kategori.toLowerCase() === filterCategory
             );
           }
-          
+
           // Reset to first page and display
           currentPage = 1;
           displayPage(currentPage);
@@ -378,14 +304,14 @@
     // Fungsi untuk menangani klik pagination
     function handlePaginationClick(e) {
       e.preventDefault();
-      
+
       if (e.target.classList.contains('page-link') && !e.target.parentElement.classList.contains('disabled')) {
         const page = parseInt(e.target.getAttribute('data-page'));
         if (page && page !== currentPage) {
           currentPage = page;
           displayPage(currentPage);
           createPagination();
-          
+
           // Scroll to top of section
           document.querySelector('#projects').scrollIntoView({
             behavior: 'smooth',
@@ -399,7 +325,7 @@
     function updatePaginationButtons() {
       const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
       const paginationContainer = document.getElementById('pagination-container');
-      
+
       if (!paginationContainer) return;
 
       // Update all page items
@@ -407,7 +333,7 @@
       pageItems.forEach((item) => {
         const link = item.querySelector('.page-link');
         if (!link) return;
-        
+
         const page = parseInt(link.getAttribute('data-page'));
 
         // Remove existing classes
