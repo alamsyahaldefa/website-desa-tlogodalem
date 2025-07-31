@@ -92,27 +92,27 @@
           </div><!-- End Google Maps -->
 
           <div class="col-lg-6">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="#" onsubmit="kirimPesanWA(event)" role="form" class="php-email-form">
               <div class="row gy-4">
                 <div class="col-lg-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Nama" required>
                 </div>
                 <div class="col-lg-6 form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
                 </div>
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Tentang" required>
               </div>
               <div class="form-group">
-                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                <textarea class="form-control" name="message" id="message" rows="5" placeholder="Pesan yang ingin disampaikan" required></textarea>
               </div>
               <div class="my-3">
                 <div class="loading">Loading</div>
                 <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
+                <div class="sent-message">Pesan Anda telah dikirim. Terima kasih!</div>
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+              <div class="text-center"><button type="submit">Kirim Pesan</button></div>
             </form>
           </div><!-- End Contact Form -->
 
@@ -137,10 +137,29 @@
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+  {{-- <script src="assets/vendor/php-email-form/validate.js"></script> --}}
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script>
+    function kirimPesanWA(e) {
+        e.preventDefault();
+
+        const nama = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+
+        const nomorTujuan = "<?= preg_replace('/[^0-9]/', '', $profil_umum->whatsapp) ?>"; // hapus karakter selain angka
+        const teks = `*[Pesan dari Web Tlogodalem]*\n\nHalo, saya ingin menghubungi Anda.\n\nNama: ${nama}\nEmail: ${email}\nTentang: ${subject}\nPesan:\n${message}`;
+
+        const linkWA = `https://wa.me/62${nomorTujuan.substring(1)}?text=${encodeURIComponent(teks)}`;
+
+        window.open(linkWA, '_blank');
+    }
+  </script>
+
 
 </body>
 

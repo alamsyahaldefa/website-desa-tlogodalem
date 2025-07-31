@@ -10,10 +10,11 @@ use App\Models\ProfilDesa;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
+    $profil = ProfilDesa::first();
     $categories = Kategori::all(['name']);
 
     // Kirim data kategori ke view menggunakan compact()
-    return view('index', compact('categories'));
+    return view('index', compact(['categories', 'profil']));
 })->name('home');
 
 Route::get('/profil', function () {

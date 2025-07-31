@@ -254,7 +254,7 @@
           <i class="bi bi-geo-alt flex-shrink-0"></i>
           <div>
             <h4><a class="stretched-link">Alamat</a></h4>
-            <p>Ngadisari, Tlogodalem, Kec. Kertek, Kabupaten Wonosobo, Jawa Tengah 56371</p>
+            <p>{{ $profil->alamat }}</p>
           </div>
         </div><!-- End Icon Box -->
 
@@ -262,7 +262,7 @@
           <i class="bi bi-telephone flex-shrink-0"></i>
           <div>
             <h4><a class="stretched-link">Telepon</a></h4>
-            <p>(0286) 321-456 | Fax: (0286) 321-457</p>
+            <p>{{ $profil->no_telp }} | Fax: {{ $profil->fax }}</p>
           </div>
         </div><!-- End Icon Box -->
 
@@ -270,7 +270,7 @@
           <i class="bi bi-envelope flex-shrink-0"></i>
           <div>
             <h4><a class="stretched-link">Email</a></h4>
-            <p>desatlogodalem@kertek.wonosobo.go.id</p>
+            <p>{{ $profil->email }}</p>
           </div>
         </div><!-- End Icon Box -->
 
