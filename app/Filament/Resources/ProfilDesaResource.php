@@ -21,14 +21,14 @@ class ProfilDesaResource extends Resource
 {
     protected static ?string $model = ProfilDesa::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-information-circle';
     protected static ?string $navigationLabel = 'Profil Desa';
     protected static ?string $pluralModelLabel = 'Profil Desa';
 
     public static function form(Form $form): Form
     {
         return $form->schema([
-        
+
             Section::make('Data Umum')
                 ->schema([
                     Grid::make(2)->schema([
@@ -50,7 +50,7 @@ class ProfilDesaResource extends Resource
                 ])
                 ->columns(1)
                 ->collapsible(),
-    
+
             Section::make('Kontak')
                 ->schema([
                     Grid::make(2)->schema([
@@ -60,13 +60,13 @@ class ProfilDesaResource extends Resource
                         TextInput::make('whatsapp')
                             ->numeric()
                             ->minValue(0)
-                            ->rules(['integer', 'min:0'])->maxLength(20),
+                            ->rules(['min:0'])->maxLength(20),
                     ]),
                 ])
                 ->columns(1)
                 ->collapsed(), // Optional: default collapsed
                 // ->collapsible(), // Optional: allow collapse toggle
-    
+
             Section::make('Media Sosial')
                 ->schema([
                     Grid::make(3)->schema([

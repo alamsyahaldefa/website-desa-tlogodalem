@@ -21,7 +21,7 @@ class PerangkatDesaResource extends Resource
 {
     protected static ?string $model = PerangkatDesa::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-user-circle';
     protected static ?string $navigationLabel = 'Perangkat Desa';
     protected static ?string $pluralModelLabel = 'Perangkat Desa';
 

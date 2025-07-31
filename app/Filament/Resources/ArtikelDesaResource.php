@@ -21,7 +21,7 @@ class ArtikelDesaResource extends Resource
 {
     protected static ?string $model = ArtikelDesa::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-newspaper';
     protected static ?string $navigationLabel = 'Artikel Desa';
     protected static ?string $pluralModelLabel = 'Artikel Desa';
 
@@ -73,31 +73,31 @@ class ArtikelDesaResource extends Resource
                         'primary' => 'draft',
                         'success' => 'published',
                     ]),
-                
+
                 // Opsi 1: Menggunakan size() untuk ukuran yang sudah ditentukan
                 ImageColumn::make('thumbnail')
                     ->size(120) // Ukuran 120px
                     ->label('Thumbnail'),
-                
+
                 // Atau Opsi 2: Menggunakan width() dan height() untuk kontrol lebih detail
                 // ImageColumn::make('thumbnail')
                 //     ->width(150)
                 //     ->height(100)
                 //     ->label('Thumbnail'),
-                
+
                 // Atau Opsi 3: Kombinasi dengan berbagai pengaturan
                 // ImageColumn::make('thumbnail')
                 //     ->size(100)
                 //     ->square() // Membuat gambar persegi
                 //     ->label('Thumbnail'),
-                
+
                 // Atau Opsi 4: Dengan pengaturan yang lebih lengkap
                 // ImageColumn::make('thumbnail')
                 //     ->size(120)
                 //     ->extraAttributes(['class' => 'rounded-lg shadow-sm'])
                 //     ->defaultImageUrl(url('/images/placeholder.png')) // Gambar default jika kosong
                 //     ->label('Thumbnail'),
-                
+
                 TextColumn::make('date')->dateTime('d M Y')->label('Tanggal Kegiatan'),
             ])
             ->defaultSort('date', 'desc')
