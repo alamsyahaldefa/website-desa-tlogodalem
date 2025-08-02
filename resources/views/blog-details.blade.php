@@ -63,7 +63,7 @@
 
           <article class="blog-details">
 
-            <div class="post-img">
+            <div class="post-img" {{ $artikel->thumbnail ? '' : 'hidden' }}>
             <img src="{{ asset('storage/' . $artikel->thumbnail) }}" alt="{{ $artikel->title }}" class="img-fluid">
             </div>
 

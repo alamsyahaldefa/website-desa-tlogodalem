@@ -303,7 +303,7 @@
         AOS.init();
 
         // Konfigurasi
-        const API_URL = 'http://127.0.0.1:8000/api/artikel-desa';
+        const API_URL = '/api/artikel-desa';
         let currentPage = 1;
         let totalPages = 1;
         let articles = [];
@@ -337,9 +337,9 @@
 
         // Fungsi untuk mendapatkan URL thumbnail
         function getThumbnailUrl(thumbnail) {
-            if (!thumbnail) return 'assets/img/default-article.jpg';
+            if (!thumbnail) return `{{ asset('storage/articles/default_thumbnail.png') }}`;
             if (thumbnail.startsWith('http')) return thumbnail;
-            return `http://127.0.0.1:8000/storage/${thumbnail}`;
+            return `/storage/${thumbnail}`;
         }
 
         // Fungsi untuk memotong konten

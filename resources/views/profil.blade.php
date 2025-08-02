@@ -236,7 +236,7 @@
           @foreach ($list_perangkat as $perangkat)
             <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="100">
                 <div class="member-img">
-                <img src="{{ asset('storage/'. $perangkat->photo) }}" class="img-fluid" alt="">
+                <img src="{{ $perangkat->photo ? asset('storage/'. $perangkat->photo) : asset('storage/perangkat-desa/default_profile.jpg') }}" class="img-fluid" alt="">
                 <div class="social">
                     <!-- <a href="#"><i class="bi bi-twitter"></i></a>
                     <a href="#"><i class="bi bi-facebook"></i></a>

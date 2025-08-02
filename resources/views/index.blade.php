@@ -336,7 +336,7 @@
     // Function to load articles from API
     async function loadArticles() {
         try {
-            const response = await fetch('http://127.0.0.1:8000/api/artikel-desa');
+            const response = await fetch('/api/artikel-desa');
 
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -385,8 +385,8 @@
         limitedArticles.forEach((article, index) => {
             const delay = (index % 3) * 100 + 100; // Staggered animation delay
             const thumbnailUrl = article.thumbnail
-                ? `http://127.0.0.1:8000/storage/${article.thumbnail}`
-                : 'assets/img/blog/default-blog.jpg';
+                ? `/storage/${article.thumbnail}`
+                : '{{ asset('storage/articles/default_thumbnail.png') }}';
 
             // Extract plain text from HTML content for preview
             const contentPreview = truncateText(stripHtml(article.content), 120);
@@ -441,7 +441,7 @@
 
     <script>
         // URL API for gallery
-        const galleryApiUrl = 'http://127.0.0.1:8000/api/galeri';
+        const galleryApiUrl = '/api/galeri';
 
         // Function to fetch gallery data from API
         async function fetchGalleryData() {

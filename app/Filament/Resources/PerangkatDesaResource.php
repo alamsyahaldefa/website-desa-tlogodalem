@@ -31,7 +31,10 @@ class PerangkatDesaResource extends Resource
             ->schema([
                 TextInput::make('name')->required()->label('Nama Perangkat Desa'),
                 TextInput::make('position')->required()->label('Jabatan'),
-                FileUpload::make('photo')->image()->directory('perangkat-desa')->label('Foto'),
+                FileUpload::make('photo')
+                    ->image()
+                    ->directory('perangkat-desa')
+                    ->label('Foto')
             ]);
     }
 
@@ -42,7 +45,8 @@ class PerangkatDesaResource extends Resource
                 ImageColumn::make('photo')
                     ->size(120) // Ukuran 120px
                     ->circular()
-                    ->label('Foto'),
+                    ->label('Foto')
+                    ->defaultImageUrl(asset('storage/perangkat-desa/default_profile.jpg')),
                 TextColumn::make('name')->label('Nama'),
                 TextColumn::make('position')->label('Jabatan'),
             ])

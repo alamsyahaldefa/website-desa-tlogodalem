@@ -96,7 +96,7 @@
 
   <script>
     // URL API
-    const apiUrl = 'http://127.0.0.1:8000/api/galeri';
+    const apiUrl = '/api/galeri';
 
     // Pagination variables
     let allItems = [];

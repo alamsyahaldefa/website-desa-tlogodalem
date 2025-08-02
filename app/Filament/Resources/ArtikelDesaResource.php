@@ -55,7 +55,8 @@ class ArtikelDesaResource extends Resource
                 TextInput::make('author_name')
                 ->label('Author Name')
                 ->required()
-                ->default(auth()->user()->name)->hidden(),
+                ->default('Admin')
+                ->hidden(),
                 TextInput::make('slug')->disabled()->columnSpanFull()->hidden(),
                 FileUpload::make('thumbnail')->image()->directory('articles'),
             ]);
@@ -77,7 +78,8 @@ class ArtikelDesaResource extends Resource
                 // Opsi 1: Menggunakan size() untuk ukuran yang sudah ditentukan
                 ImageColumn::make('thumbnail')
                     ->size(120) // Ukuran 120px
-                    ->label('Thumbnail'),
+                    ->label('Thumbnail')
+                    ->defaultImageUrl(asset('storage/articles/default_thumbnail.png')),
 
                 // Atau Opsi 2: Menggunakan width() dan height() untuk kontrol lebih detail
                 // ImageColumn::make('thumbnail')
