@@ -40,6 +40,7 @@ class DashboardPanelProvider extends PanelProvider
                 // Pages\Dashboard::class,
                 CustomDashboard::class,
             ])
+            ->favicon(asset('assets/img/favicon.png'))
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,
